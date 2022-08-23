@@ -59,3 +59,8 @@ ul {
   color: white;
   text-decoration: none;
 }
+
+.article-tile-links a {
+  color: blue;
+  text-decoration: none;
+}

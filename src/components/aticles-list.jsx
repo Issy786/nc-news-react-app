@@ -1,9 +1,11 @@
+import { ArticleCard } from "./article-card";
+
 export function ListArticle({ articles }) {
   return (
-    <div>
-      <ul>
-        {articles.map(
-          ({
+    <>
+      {articles.map(
+        (
+          {
             article_id,
             title,
             topic,
@@ -11,20 +13,23 @@ export function ListArticle({ articles }) {
             created_at,
             votes,
             comment_count,
-          }) => {
-            return (
-              <li className="article-list" key={article_id}>
-                <h3>{title}</h3>
-                <h4>Topic: {topic}</h4>
-                <h4>Author: {author}</h4>
-                <h4>Date: {created_at}</h4>
-                <h4>Votes: {votes}</h4>
-                <h4>Comments: {comment_count}</h4>
-              </li>
-            );
-          }
-        )}
-      </ul>
-    </div>
+          },
+          index
+        ) => {
+          return (
+            <ArticleCard
+              key={index}
+              article_id={article_id}
+              title={title}
+              topic={topic}
+              author={author}
+              created_at={created_at}
+              votes={votes}
+              comment_count={comment_count}
+            />
+          );
+        }
+      )}
+    </>
   );
 }
