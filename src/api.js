@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const fetchArticles = () => {
   return fetch("https://nc-news-app-issy.herokuapp.com/api/articles").then(
     (res) => {
@@ -28,4 +30,11 @@ export const fetchAllArticlesByTopics = (topic) => {
   ).then((res) => {
     return res.json();
   });
+};
+
+export const patchArticle = (article_id) => {
+  return axios.patch(
+    `https://nc-news-app-issy.herokuapp.com/api/articles/${article_id}`,
+    { inc_votes: 1 }
+  );
 };

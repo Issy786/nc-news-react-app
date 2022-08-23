@@ -64,3 +64,20 @@ ul {
   color: blue;
   text-decoration: none;
 }
+
+.votes {
+  border: 5px solid purple;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.vote-button {
+  background-color: purple;
+  color: white;
+  border-radius: 10px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
