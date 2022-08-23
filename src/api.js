@@ -6,6 +6,14 @@ export const fetchArticles = () => {
   );
 };
 
+export const fetchArticleById = (article_id) => {
+  return fetch(
+    `https://nc-news-app-issy.herokuapp.com/api/articles/${article_id}`
+  ).then((res) => {
+    return res.json();
+  });
+};
+
 export const fetchAllTopics = () => {
   return fetch("https://nc-news-app-issy.herokuapp.com/api/topics").then(
     (res) => {

@@ -2,6 +2,8 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { ArticlesProvider } from "./components/articles-provider";
 import { BottomNav } from "./components/bottom-nav";
+import { SingleArticle } from "./components/single-article";
+
 import { TopicProvider } from "./components/topic-provider";
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ArticlesProvider />} />
           <Route path="/articles/:topic" element={<TopicProvider />} />
+          <Route path="/article/:article_id" element={<SingleArticle />} />
         </Routes>
       </div>
     </BrowserRouter>
