@@ -2,19 +2,28 @@ export function ListArticle({ articles }) {
   return (
     <div>
       <ul>
-        {articles.map((article) => {
-          console.log(article);
-          return (
-            <li className="article-list" key={article.article_id}>
-              <h3>{article.title}</h3>
-              <h4>Topic: {article.topic}</h4>
-              <h4>Author: {article.author}</h4>
-              <h4>Date: {article.created_at}</h4>
-              <h4>Votes: {article.votes}</h4>
-              <h4>Comments: {article.comment_count}</h4>
-            </li>
-          );
-        })}
+        {articles.map(
+          ({
+            article_id,
+            title,
+            topic,
+            author,
+            created_at,
+            votes,
+            comment_count,
+          }) => {
+            return (
+              <li className="article-list" key={article_id}>
+                <h3>{title}</h3>
+                <h4>Topic: {topic}</h4>
+                <h4>Author: {author}</h4>
+                <h4>Date: {created_at}</h4>
+                <h4>Votes: {votes}</h4>
+                <h4>Comments: {comment_count}</h4>
+              </li>
+            );
+          }
+        )}
       </ul>
     </div>
   );
