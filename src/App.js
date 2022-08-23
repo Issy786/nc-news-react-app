@@ -1,6 +1,7 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { ArticlesProvider } from "./components/articles-provider";
+import { BottomNav } from "./components/bottom-nav";
 import { TopicProvider } from "./components/topic-provider";
 
 function App() {
@@ -16,10 +17,10 @@ function App() {
             User
           </span>
         </nav>
-        <nav className="bottom-nav">Topics: | Coding Cooking Football</nav>
+        <BottomNav />
         <Routes>
           <Route path="/" element={<ArticlesProvider />} />
-          <Route path="/topics" element={<TopicProvider />} />
+          <Route path="/articles/:topic" element={<TopicProvider />} />
         </Routes>
       </div>
     </BrowserRouter>
