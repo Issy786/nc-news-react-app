@@ -4,21 +4,18 @@ export function ListArticle({ articles }) {
   return (
     <>
       {articles.map(
-        (
-          {
-            article_id,
-            title,
-            topic,
-            author,
-            created_at,
-            votes,
-            comment_count,
-          },
-          index
-        ) => {
+        ({
+          article_id,
+          title,
+          topic,
+          author,
+          created_at,
+          votes,
+          comment_count,
+        }) => {
           return (
             <ArticleCard
-              key={index}
+              key={article_id}
               article_id={article_id}
               title={title}
               topic={topic}
