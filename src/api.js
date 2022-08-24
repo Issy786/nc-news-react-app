@@ -38,3 +38,11 @@ export const patchArticle = (article_id) => {
     { inc_votes: 1 }
   );
 };
+
+export const fetchAllCommentsByArticleId = (article_id) => {
+  return fetch(
+    `https://nc-news-app-issy.herokuapp.com/api/articles/${article_id}/comments`
+  ).then((res) => {
+    return res.json();
+  });
+};

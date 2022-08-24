@@ -18,12 +18,13 @@ export const Votes = ({ votes, article_id, setArticle }) => {
   if (err) return <p className="error">{err}</p>;
   return (
     <div>
-      <h4>
-        <span>Votes: {votes + optimisticVotes}</span>{" "}
+      <p>
+        <span className="article-votes">Votes: </span>
+        {votes + optimisticVotes}{" "}
         <button className="vote-button" onClick={incrementVote}>
           Vote
         </button>
-      </h4>
+      </p>
     </div>
   );
 };
