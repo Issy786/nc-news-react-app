@@ -15,7 +15,7 @@ export const ArticleCard = ({
         <article className="article-list">
           <h3>{title}</h3>
           <h4>Topic: {topic}</h4>
-          <h4>Author: {author}</h4>
+          <h4>By {author}</h4>
           <h4>Date: {created_at}</h4>
           <h4>Votes: {votes}</h4>
           <h4>Comments: {comment_count}</h4>

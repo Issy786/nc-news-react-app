@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchArticleById } from "../api";
+import { Comments } from "./comments";
 import { Votes } from "./votes";
 
 export const SingleArticle = () => {
@@ -22,16 +23,19 @@ export const SingleArticle = () => {
   return (
     <article className="article-list">
       <h3>{article.title}</h3>
-      <h4>{article.topic}</h4>
-      <h4>Author: {article.author}</h4>
-      <h4>Article:</h4> <p>{article.body}</p>
-      <h4>{article.created_at}</h4>
+      <h4 className="topic-author-heading">
+        {article.topic} | By {article.author}
+      </h4>
+      <p className="article">{article.body}</p>
+      <p className="article-date">{article.created_at}</p>
       <Votes
         votes={article.votes}
         article_id={article.article_id}
         setArticle={setArticle}
       />
-      <h4>Comments: {article.comment_count}</h4>
+      <div>
+        <Comments article_id={article.article_id} />
+      </div>
     </article>
   );
 };
