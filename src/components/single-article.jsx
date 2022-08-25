@@ -21,7 +21,7 @@ export const SingleArticle = () => {
   }
 
   return (
-    <article className="article-list">
+    <article className="article-list single-article">
       <h3>{article.title}</h3>
       <h4 className="topic-author-heading">
         {article.topic} | By {article.author}

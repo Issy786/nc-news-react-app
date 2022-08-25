@@ -40,9 +40,17 @@ export const patchArticle = (article_id) => {
 };
 
 export const fetchAllCommentsByArticleId = (article_id) => {
-  return fetch(
+  return axios.get(
     `https://nc-news-app-issy.herokuapp.com/api/articles/${article_id}/comments`
-  ).then((res) => {
-    return res.json();
-  });
+  );
+};
+
+export const postNewComment = (article_id, user, newComment) => {
+  return axios.post(
+    `https://nc-news-app-issy.herokuapp.com/api/articles/${article_id}/comments`,
+    {
+      username: user,
+      body: newComment,
+    }
+  );
 };
