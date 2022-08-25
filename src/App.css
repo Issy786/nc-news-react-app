@@ -50,6 +50,12 @@
   border-bottom: 5px solid rgb(155, 154, 154);
 }
 
+.single-article {
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 ul {
   padding: 1px;
   margin: 0;
@@ -114,7 +120,7 @@ ul {
   color: black;
   padding-left: 10px;
   padding-right: 10px;
-  border-top: 2px solid rgb(155, 154, 154);
+  border-bottom: 2px solid rgb(155, 154, 154);
 }
 
 .comment-author {
@@ -135,4 +141,23 @@ ul {
 
 .comment-date {
   color: rgb(88, 88, 88);
+}
+
+.comment-box {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 80%;
+}
+
+.comment-add-button {
+  background-color: purple;
+  color: white;
+  border-radius: 10px;
+}
+
+.username-box {
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
