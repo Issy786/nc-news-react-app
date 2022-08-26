@@ -11,7 +11,7 @@ export const Votes = ({ votes, article_id, setArticle }) => {
     });
     patchArticle(article_id).catch((err) => {
       setOptimisticVotes((currOptimisticVotes) => currOptimisticVotes - 1);
-      setErr("Vote did not go through, please try again.");
+      setErr("sorry you vote did not go through, please try again.");
     });
   };
 
