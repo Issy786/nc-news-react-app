@@ -98,3 +98,9 @@ export const postNewComment = (article_id, user, newComment) => {
 export const fetchUsers = () => {
   return axios.get("https://nc-news-app-issy.herokuapp.com/api/users");
 };
+
+export const removeComment = (comment_id) => {
+  return axios.delete(
+    `https://nc-news-app-issy.herokuapp.com/api/comments/${comment_id}`
+  );
+};

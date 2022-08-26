@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { postNewComment } from "../api";
+import { UserContext } from "./user";
 
 export const PostComment = ({ comments, setComments, article_id }) => {
   const [newComment, setNewComment] = useState("");
-  const [user, setUser] = useState("");
   const [err, setErr] = useState(null);
+
+  const { loggedInUser } = useContext(UserContext);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -12,7 +14,7 @@ export const PostComment = ({ comments, setComments, article_id }) => {
     setComments((currComments) => {
       const newCommentBody = {
         comment_id: comments.length + 1,
-        author: user,
+        author: loggedInUser.username,
         created_at: Date.now().toString(),
         body: newComment,
         votes: 0,
@@ -20,10 +22,9 @@ export const PostComment = ({ comments, setComments, article_id }) => {
       return [newCommentBody, ...currComments];
     });
 
-    postNewComment(article_id, user, newComment).catch((err) =>
+    postNewComment(article_id, loggedInUser.username, newComment).catch((err) =>
       setErr("sorry your comment did not add, please try again")
     );
-    setUser("");
     setNewComment("");
   };
 
@@ -31,18 +32,6 @@ export const PostComment = ({ comments, setComments, article_id }) => {
   return (
     <>
       <form onSubmit={submitHandler}>
-        <div>
-          <input
-            className="username-box"
-            placeholder="Username"
-            type="text"
-            name="username"
-            value={user}
-            onChange={(event) => {
-              setUser(event.target.value);
-            }}
-          ></input>
-        </div>
         <input
           className="comment-box"
           placeholder="Add a comment"

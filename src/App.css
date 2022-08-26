@@ -244,3 +244,10 @@ ul {
   border-radius: 10px;
   margin-bottom: 10px;
 }
+
+.comment-delete-button {
+  background-color: purple;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
