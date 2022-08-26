@@ -20,7 +20,7 @@ export const Comments = ({ article_id }) => {
         setComments={setComments}
         article_id={article_id}
       />
-      <CommentList comments={comments} />
+      <CommentList comments={comments} setComments={setComments} />
     </div>
   );
 };
