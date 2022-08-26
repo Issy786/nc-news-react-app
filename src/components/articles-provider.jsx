@@ -9,16 +9,23 @@ export const ArticlesProvider = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams({});
+  const [err, setErr] = useState(null);
 
   const sort_by = searchParams.get("sort_by");
   const order_by = searchParams.get("order_by");
 
   useEffect(() => {
-    fetchArticles(sort_by, order_by).then((data) => {
-      setArticles(data.articles);
-      setIsLoading(false);
-    });
+    fetchArticles(sort_by, order_by)
+      .then((data) => {
+        setArticles(data.articles);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setErr("sorry could not load page, please try agian");
+      });
   }, [sort_by, order_by]);
+
+  if (err) return <p className="error">{err}</p>;
 
   if (isLoading) {
     return <p>Loading...</p>;

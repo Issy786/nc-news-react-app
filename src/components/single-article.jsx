@@ -8,13 +8,20 @@ export const SingleArticle = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const articleId = useParams().article_id;
+  const [err, setErr] = useState(null);
 
   useEffect(() => {
-    fetchArticleById(articleId).then((data) => {
-      setArticle(data.article);
-      setIsLoading(false);
-    });
+    fetchArticleById(articleId)
+      .then((data) => {
+        setArticle(data.article);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setErr("sorry could not load page, please try again");
+      });
   }, [articleId]);
+
+  if (err) return <p className="error">{err}</p>;
 
   if (isLoading) {
     return <p>Loading...</p>;

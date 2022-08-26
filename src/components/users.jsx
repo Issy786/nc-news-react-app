@@ -4,14 +4,21 @@ import { UserContext } from "./user";
 
 export const ChangeUser = () => {
   const [users, setUsers] = useState([]);
+  const [err, setErr] = useState(null);
 
   const { setLoggedInUser } = useContext(UserContext);
 
   useEffect(() => {
-    fetchUsers().then((res) => {
-      setUsers(res.data.users);
-    });
+    fetchUsers()
+      .then((res) => {
+        setUsers(res.data.users);
+      })
+      .catch((err) => {
+        setErr("sorry could not load page, please try again");
+      });
   }, []);
+
+  if (err) return <p className="error">{err}</p>;
 
   return (
     <div>

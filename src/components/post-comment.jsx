@@ -22,8 +22,14 @@ export const PostComment = ({ comments, setComments, article_id }) => {
       return [newCommentBody, ...currComments];
     });
 
-    postNewComment(article_id, loggedInUser.username, newComment).catch((err) =>
-      setErr("sorry your comment did not add, please try again")
+    postNewComment(article_id, loggedInUser.username, newComment).catch(
+      (err) => {
+        setComments((currComments) => {
+          const commentsHolder = [...currComments];
+          return commentsHolder.slice(1);
+        });
+        setErr("sorry your comment did not add, please try again");
+      }
     );
     setNewComment("");
   };

@@ -18,7 +18,7 @@ export const CommentList = ({ comments, setComments }) => {
 
     removeComment(comment_id).catch((err) => {
       setComments((currComments) => [currComments]);
-      setErr("sorry your comment did not delere, please try again");
+      setErr("sorry your comment did not delete, please try again");
     });
   };
 
