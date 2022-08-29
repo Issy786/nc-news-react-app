@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# NC-News-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://the-awesome-issy786-site.netlify.app/
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This App uses the backend API to provide news articles, comments on the related articles, votes and dates on related the articles, votes and dates on comments and finally a users page.
 
-### `npm start`
+The App has a top nav bar and a bottom nav bar. the top nav bar has a article link to a list of all the available articles, a users link which lists all the available users you can choose from and finally the username and avatar of the current user. The bottom nav bar has all available article topic links which list all the articles related to that topic.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The App allows the user to open a article by clicking on a article tile. Users can also sort the list of the articles by 'clicking' on the sort by button on mobile version or 'hovering' over the sort by button on desktop version and chosing an option. Users can also order the articles by clicking on the top button to start from the top of their chosen sort option or by clicking on the bottom button to start from the bottom Each article has it's own page with the topic, author, date, amount of votes and all the comments made on the article. To up-vote or down-vote on a article, the user can just simply click on either the '+' or '-' icons. To post a comment, the user can just simply type their comment in the comment input area and click on the add button. Users can also delete their own and only their own comments by clicking on the delete button.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Links to API
 
-### `npm test`
+- https://nc-news-app-issy.herokuapp.com/api
+- https://nc-news-app-issy.herokuapp.com/api/articles
+- https://nc-news-app-issy.herokuapp.com/api/topics
+- https://nc-news-app-issy.herokuapp.com/api/users
+- https://nc-news-app-issy.herokuapp.com/api/articles?topic=coding (chosen articles by topic)
+- https://nc-news-app-issy.herokuapp.com/api/articles?sort_by=title (chosen sort option for articles list)
+- https://nc-news-app-issy.herokuapp.com/api/articles?order_by=ASC
+  (chosen articles order for articles list - ASC for asscending and DESC for descending)
+- https://nc-news-app-issy.herokuapp.com/api/articles/1 (chosen article by it's id)
+- https://nc-news-app-issy.herokuapp.com/api/articles/1/comments (comments on the related article)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Node version
 
-### `npm run build`
+The minimum required version of Node to run this project is:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node: v18.3.0
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to use
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Clone this repo
 
-### `npm run eject`
+in the terminal run the following command:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`git clone https://github.com/Issy786/nc-news-react-app.git`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To run the App please install the following packages:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### **Axios:**
 
-## Learn More
+`npm install axios`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### **react-router-dom:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`npm i react-router-dom`
 
-### Code Splitting
+### Run the App locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+to run the app locally, run the following command:
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`npm start`
