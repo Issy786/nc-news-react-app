@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { patchArticle } from "../api";
+import { patchArticle, patchArticleDownVote } from "../api";
 
 export const Votes = ({ votes, article_id, setArticle }) => {
   const [optimisticVotes, setOptimisticVotes] = useState(0);
@@ -15,6 +15,16 @@ export const Votes = ({ votes, article_id, setArticle }) => {
     });
   };
 
+  const decrementVote = () => {
+    setOptimisticVotes((currOptimisticVotes) => {
+      return currOptimisticVotes - 1;
+    });
+    patchArticleDownVote(article_id).catch((err) => {
+      setOptimisticVotes((currOptimisticVotes) => currOptimisticVotes + 1);
+      setErr("sorry you vote did not go through, please try again.");
+    });
+  };
+
   if (err) return <p className="error">{err}</p>;
   return (
     <div>
@@ -22,7 +32,10 @@ export const Votes = ({ votes, article_id, setArticle }) => {
         <span className="article-votes">Votes: </span>
         {votes + optimisticVotes}{" "}
         <button className="vote-button" onClick={incrementVote}>
-          Vote
+          +
+        </button>
+        <button className="vote-button-down" onClick={decrementVote}>
+          -
         </button>
       </p>
     </div>

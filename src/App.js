@@ -8,7 +8,7 @@ import { SingleArticle } from "./components/single-article";
 import { TopicProvider } from "./components/topic-provider";
 import { ChangeUser } from "./components/users";
 import { UserContext } from "./components/user";
-import { TopNav } from "./top-nav";
+import { TopNav } from "./components/top-nav";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -22,11 +22,13 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
         <div className="App">
-          <header>
-            NC <span className="title-split">News</span>
-          </header>
-          <TopNav />
-          <BottomNav />
+          <div className="header-navs">
+            <header>
+              NC <span className="title-split">News</span>
+            </header>
+            <TopNav />
+            <BottomNav />
+          </div>
           <Routes>
             <Route path="/" element={<ArticlesProvider />} />
             <Route path="/articles/:topic" element={<TopicProvider />} />

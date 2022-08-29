@@ -79,6 +79,13 @@ export const patchArticle = (article_id) => {
   );
 };
 
+export const patchArticleDownVote = (article_id) => {
+  return axios.patch(
+    `https://nc-news-app-issy.herokuapp.com/api/articles/${article_id}`,
+    { inc_votes: -1 }
+  );
+};
+
 export const fetchAllCommentsByArticleId = (article_id) => {
   return axios.get(
     `https://nc-news-app-issy.herokuapp.com/api/articles/${article_id}/comments`

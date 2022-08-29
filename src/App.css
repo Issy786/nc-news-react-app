@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background-color: white;
   color: blue;
   font-size: 1.5rem;
   display: grid;
@@ -11,6 +10,24 @@
     "nav2"
     "main1";
   grid-template-rows: auto auto auto 1fr;
+}
+
+header {
+  background-color: white;
+}
+
+.grid-top-nav {
+  grid-template-areas: "article-users user";
+}
+
+.left-top-nav {
+  text-align: left;
+  grid-area: article-users;
+}
+
+.right-top-nav {
+  text-align: right;
+  grid-area: users;
 }
 
 .title-split {
@@ -97,7 +114,25 @@ ul {
 .vote-button {
   background-color: purple;
   color: white;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
+}
+
+.vote-button:active {
+  outline-color: transparent;
+  outline-style: solid;
+  box-shadow: 0 0 0 4px #5a01a7;
+}
+
+.vote-button-down {
+  background-color: purple;
+  color: white;
+  border-radius: 0 10px 10px 0;
+}
+
+.vote-button:active {
+  outline-color: transparent;
+  outline-style: solid;
+  box-shadow: 0 0 0 4px #5a01a7;
 }
 
 .error {
@@ -157,6 +192,12 @@ ul {
   border-radius: 10px;
 }
 
+.comment-add-button:active {
+  outline-color: transparent;
+  outline-style: solid;
+  box-shadow: 0 0 0 4px #5a01a7;
+}
+
 .username-box {
   border-top: none;
   border-left: none;
@@ -166,18 +207,26 @@ ul {
 .dropbtn {
   background-color: purple;
   color: white;
-  /* padding: 16px;
-  font-size: 16px; */
-  /* border: none; */
   cursor: pointer;
   border-radius: 10px;
-  grid-area: dropdown;
+}
+
+.dropbtn:active {
+  outline-color: transparent;
+  outline-style: solid;
+  box-shadow: 0 0 0 4px #5a01a7;
 }
 
 .order-by-buttons {
   background-color: purple;
   color: white;
   border-radius: 10px;
+}
+
+.order-by-buttons:focus {
+  outline-color: transparent;
+  outline-style: solid;
+  box-shadow: 0 0 0 4px #5a01a7;
 }
 
 .dropdown {
@@ -225,8 +274,8 @@ ul {
 }
 
 .curr-user_avatar {
-  width: 25px;
-  height: 25px;
+  width: 19px;
+  height: 19px;
   border-radius: 50%;
 }
 
@@ -245,9 +294,135 @@ ul {
   margin-bottom: 10px;
 }
 
+.change-user-button:active {
+  outline-color: transparent;
+  outline-style: solid;
+  box-shadow: 0 0 0 4px #5a01a7;
+}
+
 .comment-delete-button {
   background-color: purple;
   color: white;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+.comment-delete-button:active {
+  outline-color: transparent;
+  outline-style: solid;
+  box-shadow: 0 0 0 4px #5a01a7;
+}
+
+@media screen and (min-width: 411px) {
+  .App {
+    font-size: 2rem;
+  }
+
+  .top-nav {
+    font-size: 1.15rem;
+  }
+
+  .bottom-nav {
+    font-size: 1.15rem;
+  }
+
+  .main {
+    font-size: 0.9rem;
+  }
+
+  .article-list {
+    font-size: 0.9rem;
+  }
+
+  .comment-author {
+    font-size: 1rem;
+  }
+
+  .comment-votes {
+    font-size: 0.9rem;
+  }
+
+  .dropbtn {
+    font-size: 0.9rem;
+  }
+
+  .order-by-buttons {
+    font-size: 0.9rem;
+  }
+
+  .curr-user_avatar {
+    width: 20px;
+    height: 20px;
+  }
+
+  .user-tile {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    background-color: rgb(226, 224, 224);
+  }
+
+  .App {
+    font-size: 3rem;
+  }
+
+  .top-nav {
+    font-size: 2rem;
+  }
+
+  .bottom-nav {
+    font-size: 2rem;
+  }
+
+  .main {
+    font-size: 2rem;
+  }
+
+  .article-list {
+    font-size: 1.1rem;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(211, 206, 206);
+    box-shadow: 1px 5px 5px rgb(199, 197, 197);
+  }
+
+  .comment-author {
+    font-size: 1.25rem;
+  }
+
+  .comment-votes {
+    font-size: 1.1rem;
+  }
+
+  .dropbtn {
+    font-size: 1.1rem;
+  }
+
+  .order-by-buttons {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .curr-user_avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+
+  .user-tile {
+    font-size: 1.1rem;
+    list-style: none;
+    margin-top: 5px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(211, 206, 206);
+    box-shadow: 1px 5px 5px rgb(199, 197, 197);
+  }
 }
